@@ -3,18 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Uer Node JS</title>
-    <style>
-      body {
-        color: white;
-        background: #333;
-        text-align: center;
-      }
-    </style>
+    <title>User Node JS</title>
+    <link rel="stylesheet" href="/css/main.css" />
   </head>
   <body>
-    <h1>User</h1>
-    <p>Upppsss... Such a page does not exist. Return to main page</p>
+    <%- include ("blocks/header") -%>
+    <h1>User's page: <%=username %></h1>
+
+    <% if (username.toLowerCase() == "egor") { %>
+    <ul>
+      <% hobbies.forEach((el)=>{ %>
+      <li><%= el %></li>
+      <% }) %>
+    </ul>
+    <% } %>
+
     <a href="/"> Main page</a>
   </body>
 </html>

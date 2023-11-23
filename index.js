@@ -4,6 +4,7 @@ const app = express();
 
 // подключаем шаблонизатор ejs
 app.set("view engine", "ejs");
+app.use(express.static("public"));
 
 app.get("/", (req, res) => {
   res.render("index");
@@ -14,7 +15,12 @@ app.get("/about", (req, res) => {
 });
 
 app.get("/user/:username", (req, res) => {
-  res.render("user");
+  let data = {
+    username: req.params.username,
+    hobbies: ["Football", "Golf", "Drinking"],
+  };
+
+  res.render("user", data);
 });
 
 const PORT = 3000;
