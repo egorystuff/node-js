@@ -4,6 +4,7 @@ const app = express();
 
 // подключаем шаблонизатор ejs
 app.set("view engine", "ejs");
+app.use(express.urlencoded({ extended: false }));
 app.use(express.static("public"));
 
 app.get("/", (req, res) => {
@@ -21,6 +22,12 @@ app.get("/user/:username", (req, res) => {
   };
 
   res.render("user", data);
+});
+
+app.post("/check-user", (req, res) => {
+  const username = req.body.username;
+  if (username == "") return res.redirect("/");
+  else return res.redirect("/user/" + username);
 });
 
 const PORT = 3000;

@@ -8,6 +8,7 @@
   </head>
   <body>
     <%- include ("blocks/header") -%>
+
     <h1>User's page: <%=username %></h1>
 
     <% if (username.toLowerCase() == "egor") { %>
@@ -17,7 +18,5 @@
       <% }) %>
     </ul>
     <% } %>
-
-    <a href="/"> Main page</a>
   </body>
 </html>
